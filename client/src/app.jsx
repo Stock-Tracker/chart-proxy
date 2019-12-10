@@ -1,11 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import utils from '../utils/utils.js';
+import urls from '../../config.js';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      url: window.location.href,
+      ticker: 'ABCD',
+      chartUrl: null,
+    };
+  }
+
+  componentDidMount() {
+    // TODO: how to go about reading the ticker from the url and sending it to the microservice?
+    // const ticker = utils.determineTicker(this.state.url);
+    this.setState({ chartUrl: `${urls.local}` });
+
+    // fetch(`${urls.local}`)
+    //   .then(res => {
+    //     console.log(res);
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
+  }
+
+  componentDidUpdate() {
+
   }
 
   render() {
@@ -39,7 +63,16 @@ class App extends React.Component {
                     <li className="tag-list-item">Computer Software</li>
                   </ul>
                 </div>
-                <div id="chart"></div>
+                <div id="chart">
+                  <iframe
+                    title="Price Chart"
+                    // TODO: better solution for sizing the iframe ...
+                    width="700"
+                    height="400"
+                    src={this.state.chartUrl}
+                  >
+                  </iframe>
+                </div>
                 <div id="about"></div>
                 <div id="collections"></div>
                 <div id="news"></div>
