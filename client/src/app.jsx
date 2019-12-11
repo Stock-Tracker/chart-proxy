@@ -15,17 +15,36 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // TODO: how to go about reading the ticker from the url and sending it to the microservice?
-    // const ticker = utils.determineTicker(this.state.url);
-    this.setState({ chartUrl: `${urls.local}` });
 
-    // fetch(`${urls.local}`)
+    // create a script tag with the appropriate URL, and add it to the DOM
+    let script = document.createElement('script');
+    script.src = "http://localhost:4444/bundle.js";
+    document.querySelector('body').appendChild(script);
+
+
+
+
+    // fetch("http://localhost:4444/bundle.js")
+    //   .then(res => res.text())
     //   .then(res => {
-    //     console.log(res);
+    //     console.log('res: ', res);
     //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   });
+    //   .catch(error => {
+    //     console.error(error);
+    //   })
+
+
+    // // TODO: how to go about reading the ticker from the url and sending it to the microservice?
+    // // const ticker = utils.determineTicker(this.state.url);
+    // this.setState({ chartUrl: `${urls.local}` });
+
+    // // fetch(`${urls.local}`)
+    // //   .then(res => {
+    // //     console.log(res);
+    // //   })
+    // //   .catch(err => {
+    // //     console.log(err);
+    // //   });
   }
 
   componentDidUpdate() {
@@ -64,14 +83,6 @@ class App extends React.Component {
                   </ul>
                 </div>
                 <div id="chart">
-                  <iframe
-                    title="Price Chart"
-                    // TODO: better solution for sizing the iframe ...
-                    width="700"
-                    height="400"
-                    src={this.state.chartUrl}
-                  >
-                  </iframe>
                 </div>
                 <div id="about"></div>
                 <div id="collections"></div>
