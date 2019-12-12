@@ -22,29 +22,17 @@ class App extends React.Component {
     document.querySelector('body').appendChild(script);
 
 
+    // TODO: how to go about reading the ticker from the url and sending it to the microservice?
+    // const ticker = utils.determineTicker(this.state.url);
+    this.setState({ chartUrl: `${urls.local}` });
 
-
-    // fetch("http://localhost:4444/bundle.js")
-    //   .then(res => res.text())
+    // fetch(`${urls.local}`)
     //   .then(res => {
-    //     console.log('res: ', res);
+    //     console.log(res);
     //   })
-    //   .catch(error => {
-    //     console.error(error);
-    //   })
-
-
-    // // TODO: how to go about reading the ticker from the url and sending it to the microservice?
-    // // const ticker = utils.determineTicker(this.state.url);
-    // this.setState({ chartUrl: `${urls.local}` });
-
-    // // fetch(`${urls.local}`)
-    // //   .then(res => {
-    // //     console.log(res);
-    // //   })
-    // //   .catch(err => {
-    // //     console.log(err);
-    // //   });
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
   }
 
   componentDidUpdate() {
