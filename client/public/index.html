@@ -9,13 +9,8 @@
 </head>
 <body>
   <div id="root"></div>
+  <!-- The bundle.js & app.css for each microservice needs to wait to be fetched until AFTER the bundle.js from the reverse proxy server has loaded. This happens in componentDidMount of <App> in the reverse proxy -->
   <script src="bundle.js"></script>
-
-  <!-- The bundle.js for each microservice needs to wait to be fetched until AFTER the bundle.js from the reverse proxy server has loaded. This happens in componentDidMount of <App> in the reverse proxy -->
-  <link href="http://localhost:4444/app.css" rel="stylesheet"></link>
-
-
-
   <!-- TODO: Is there a better way to handle running ReactDOM.render() to mount each component to the page here?? -->
   <script>
 

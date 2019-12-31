@@ -1,0 +1,8 @@
+version: '3.2'
+services:
+  chart:
+    image: bellcd/robinhood:reverse-proxy
+    ports:
+      - '80:80'
+    environment:
+      - NODE_ENV=production
