@@ -11,6 +11,7 @@ class App extends React.Component {
       url: window.location.href,
       ticker: 'ABCD',
       chartUrl: null,
+      theme: 'theme-closed-up' // TODO: change this CSS theme depending on the time of the day ...
     };
   }
 
@@ -79,7 +80,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="react-root">
+      <div className={`react-root ${this.state.theme}`}>
         <div className="main-container">
           <header>
             <div id="logo">
