@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
+    "start-dev": "nodemon server.js",
     "start-docker": "node server.js",
     "dev": "webpack --watch",
     "build": "webpack -p && docker build -t bellcd/robinhood:reverse-proxy . && docker push bellcd/robinhood:reverse-proxy"
