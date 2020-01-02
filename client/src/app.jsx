@@ -102,13 +102,6 @@ class App extends React.Component {
           <main>
             <div className="row">
               <div>
-                <div id="tags">
-                  <ul className="tag-list">
-                    <li className="tag-list-item">Computer Hardware</li>
-                    <li className="tag-list-item">100 Most Popular</li>
-                    <li className="tag-list-item">Computer Software</li>
-                  </ul>
-                </div>
                 <div id="chart">
                 </div>
                 <div id="about"></div>
