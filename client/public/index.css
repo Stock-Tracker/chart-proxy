@@ -34,7 +34,8 @@
   --orange: #f45531;
   --orange-light: #ff6340;
   --gray-dark: #1b1b1b;
-  --gray-light: #8c8c8e;
+  --gray-light: #000000;
+  --white: #fff;
 
   /* --green: rgb(33, 206, 153); */
   /* --green-light: rgb(26, 233, 170); */
@@ -47,11 +48,8 @@ body {
   font-family: "DINPro Medium", sans-serif;
 }
 
-/* THEMES */
-.theme-closed-up {
-  color: #fff;
-  background: #1b1b1b;
-}
+.react-root[data-theme="dark"] { color: var(--white); background: var(--gray-dark); }
+.react-root[data-theme="light"] { color: var(--gray-dark); background: var(--white); }
 
 /* HEADER */
 header {
@@ -98,9 +96,9 @@ nav {
   margin-left: 33px;
 }
 
-.nav-list-item:hover {
-  color: var(--green);
-}
+.nav-list-item[data-theme="light"] { color: var(--gray-dark); }
+
+.nav-list-item:hover { color: var(--green); }
 
 /* MAIN */
 main {

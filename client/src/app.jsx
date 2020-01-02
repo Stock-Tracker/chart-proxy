@@ -11,7 +11,7 @@ class App extends React.Component {
       url: window.location.href,
       ticker: 'ABCD',
       chartUrl: null,
-      theme: 'theme-closed-up' // TODO: change this CSS theme depending on the time of the day ...
+      theme: 'light' // TODO: change this CSS theme depending on the time of the day ...
     };
   }
 
@@ -80,7 +80,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className={`react-root ${this.state.theme}`}>
+      <div className={`react-root`} data-theme={`${this.state.theme}`}>
         <div className="main-container">
           <header>
             <div id="logo">
@@ -91,11 +91,11 @@ class App extends React.Component {
             </div>
             <nav>
               <ul className="nav-list">
-                <li className="nav-list-item">Free Stock</li>
-                <li className="nav-list-item">Portfolio</li>
-                <li className="nav-list-item">Cash</li>
-                <li className="nav-list-item">Messages</li>
-                <li className="nav-list-item">Account</li>
+                <li className="nav-list-item" data-theme={`${this.state.theme}`}>Free Stock</li>
+                <li className="nav-list-item" data-theme={`${this.state.theme}`}>Portfolio</li>
+                <li className="nav-list-item" data-theme={`${this.state.theme}`}>Cash</li>
+                <li className="nav-list-item" data-theme={`${this.state.theme}`}>Messages</li>
+                <li className="nav-list-item" data-theme={`${this.state.theme}`}>Account</li>
               </ul>
             </nav>
           </header>
