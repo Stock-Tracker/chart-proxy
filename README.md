@@ -1,57 +1,56 @@
-# Chart-Proxy
-> Reverse Proxy for all the services
-
-## Related Projects
-  ###### Chart that interacts with the other microservices
-
-  ###### Microservices
-  - https://github.com/Dr-Wing/about-microservice
+# Chart
+> Reverse Proxy for a Service-oriented architecture clone of the [stock detail page from Robinhood.com](https://robinhood.com/stocks/AAPL)
 
 ## Table of Contents
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
+- [Chart](#chart)
+  - [Table of Contents](#table-of-contents)
+  - [Related Projects](#related-projects)
+  - [Deployment](#deployment)
+    - [If Needed](#if-needed)
+  - [Requirements](#requirements)
+  - [Development](#development)
+    - [With Docker](#with-docker)
+    - [Without Docker](#without-docker)
+  - [Build](#build)
 
-## Usage
-- No .env file is required.
+## Related Projects
+- Microservices
+  - [About](https://github.com/Dr-Wing/about-microservice)
+  - [Price Chart](https://github.com/Dr-Wing/chart)
+  - [Earnings Chart](https://github.com/Dr-Wing/earnings)
+  - [People Also Bought](https://github.com/Dr-Wing/people-also-bought)
 
-- From your LOCAL computer:
+## Deployment
+- Create a file in the project directory named `.env`, based on `.env.template`. This file will need the URL of the deployed EC2 instance, as well as the absolute path to the private key file in order to authenticate into that instance.
+
+- From your LOCAL computer
 ```sh
-bash ec2-move-files.sh EC2_INSTANCE_URL
+# Makes the environment variables you just defined in `.env` available in your current shell
+export $(cat .env)
 ```
 
-- ssh into the ec2 instance like so:
 ```sh
-ssh -i ~/aws/Administrator-key-pair-useast1.pem ec2-user@EC2_INSTANCE_URL
+# Only include the 1 at the end if this is the first time you've run this script on this instance (installs things like docker, docker-compose, etc...)
+bash deploy.sh $instance $pathToPEM 1
 ```
 
-- change directory to `reverse-proxy`
-```sh
-cd reverse-proxy
-```
+- Enter yes at the prompt.
 
-- From the ec2 instance (If this file has not already been run on this instance)
-```sh
-bash ec2-install.sh
-```
+- The app is now running on the instance in a container at port 80.
 
-- If ec2-install.sh was run, logout of the ec2 instance with `exit` and log back in using the command above
-
-- Again from the ec2 instance, `reverse-proxy` directory
-```sh
-docker-compose up
-```
-
-> The reverse proxy is now running in a container at port 80. To stop the app (and clean up after yourself!), run this command from the `reverse-proxy` directory of the ec2 instance:
+### If Needed
+- To stop the app (and clean up after yourself!), run this command from the `reverse-proxy` directory of the ec2 instance:
 ```sh
 docker-compose down -v --rmi all
 ```
+- To connect to the mongo db running in the mongo container (ie, check if there is data there, etc ...), from the ec2 instance, run
+```sh
+docker exec -i ec2-user_mongo_1 mongo "mongodb://localhost"
+```
 
 ## Requirements
-### With Docker
 - docker
-### Without Docker
-- node, npm, and mongo
+- docker-compose
 
 ## Development
 ### With Docker
@@ -64,4 +63,23 @@ docker build -t proxy .
 ```sh
 docker run -p 3000:3000 -v $(pwd):/app --name proxy proxy
 ```
+
 ### Without Docker
+- From within the root directory:
+```sh
+npm install
+  ```
+
+  ```sh
+npm run dev
+  ```
+
+  ```sh
+npm run start-dev
+  ```
+
+## Build
+- Creates a webpack bundle, Builds a docker image, and pushes it to dockerhub
+```sh
+npm run build
+```
