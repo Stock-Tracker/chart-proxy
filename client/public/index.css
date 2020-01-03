@@ -1,7 +1,55 @@
-body {
-  margin: 0;
+/* FONTS */
+@font-face {
+  font-family: 'DINPro Light';
+  font-style: normal;
+  font-weight: normal;
+  src: url('fonts/DINPro-Light tr.woff') format('woff');
 }
 
+@font-face {
+  font-family: 'DINPro Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/fonts/DINPro-Medium tr.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'DINPro Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: url('fonts/DINPro-Bold tr.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'DINPro Black';
+  font-style: normal;
+  font-weight: normal;
+  src: url('fonts/DINPro-Black tr.woff') format('woff');
+}
+
+/* COLORS */
+:root {
+  --green: #21ce99;
+  --green-light: #1ae9aa;
+  --orange: #f45531;
+  --orange-light: #ff6340;
+  --gray-dark: #1b1b1b;
+  --gray-light: #000000;
+  --white: #fff;
+
+  /* --green: rgb(33, 206, 153); */
+  /* --green-light: rgb(26, 233, 170); */
+  /* --orange: rgb(244, 85, 49); */
+  /* --orange-light: rgb(255, 99, 64); */
+}
+
+body {
+  margin: 0;
+  font-family: "DINPro Medium", sans-serif;
+}
+
+.react-root[data-theme="dark"] { color: var(--white); background: var(--gray-dark); }
+.react-root[data-theme="light"] { color: var(--gray-dark); background: var(--white); }
 
 /* HEADER */
 header {
@@ -48,6 +96,10 @@ nav {
   margin-left: 33px;
 }
 
+.nav-list-item[data-theme="light"] { color: var(--gray-dark); }
+
+.nav-list-item:hover { color: var(--green); }
+
 /* MAIN */
 main {
   padding-top: 36px;
@@ -58,15 +110,4 @@ main {
 .row {
   display: flex;
   justify-content: space-between;
-}
-
-/* TAGS */
-.tag-list {
-  display: flex;
-  list-style: none;
-  justify-content: space-evenly;
-}
-
-.tag-list-item {
-
 }

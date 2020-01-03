@@ -5,17 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Reverse Proxy for RobinHood Stock Detail Page Clone</title>
-  <link href="index.css" rel="stylesheet">
+  <link rel="preload" href="fonts/DINPro-Light tr.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="fonts/DINPro-Medium tr.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="fonts/DINPro-Bold tr.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="fonts/DINPro-Black tr.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="index.css" as="style">
+
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
   <div id="root"></div>
+  <!-- The bundle.js & app.css for each microservice needs to wait to be fetched until AFTER the bundle.js from the reverse proxy server has loaded. This happens in componentDidMount of <App> in the reverse proxy -->
   <script src="bundle.js"></script>
-
-  <!-- The bundle.js for each microservice needs to wait to be fetched until AFTER the bundle.js from the reverse proxy server has loaded. This happens in componentDidMount of <App> in the reverse proxy -->
-  <link href="http://localhost:4444/app.css" rel="stylesheet"></link>
-
-
-
   <!-- TODO: Is there a better way to handle running ReactDOM.render() to mount each component to the page here?? -->
   <script>
 
