@@ -19,45 +19,24 @@ class App extends React.Component {
   componentDidMount() {
     console.log('config: ', config);
 
-    let reverseProxyUrlThroughPort;
-    if (config.REVERSE_PROXY_URL === null) {
-      reverseProxyUrlThroughPort = window.location.origin;
-    } else {
-      reverseProxyUrlThroughPort = `${config.REVERSE_PROXY_URL}:${config.REVERSE_PROXY_PORT}`;
-    }
-
     // For each relevant microservice, create a script tag with the appropriate URL, and add it to the DOM
     // Service Chart
-    let serviceChartUrl;
-    if (config.SERVICE_CHART_URL === null) {
-      serviceChartUrl = `${window.location.protocol}//${window.location.hostname}`;
-    } else {
-      serviceChartUrl = `${config.SERVICE_CHART_URL}`;
-    }
-
     let script = document.createElement('script');
-    script.src = `${serviceChartUrl}:${config.SERVICE_CHART_PORT}/bundle.js`;
+    script.src = `${config.SERVICE_CHART_URL}:${config.SERVICE_CHART_PORT}/bundle.js`;
     document.querySelector('body').appendChild(script);
 
     let link = document.createElement('link')
-    link.href = `${serviceChartUrl}:${config.SERVICE_CHART_PORT}/app.css`;
+    link.href = `${config.SERVICE_CHART_URL}:${config.SERVICE_CHART_PORT}/app.css`;
     link.rel = 'stylesheet';
     document.querySelector('body').appendChild(link);
 
     // Service People Also Bought
-    let servicePeopleAlsoBoughtUrl;
-    if (config.SERVICE_PEOPLE_ALSO_BOUGHT_URL === null) {
-      servicePeopleAlsoBoughtUrl = `${window.location.protocol}//${window.location.hostname}`;
-    } else {
-      servicePeopleAlsoBoughtUrl = `${config.SERVICE_PEOPLE_ALSO_BOUGHT_URL}`;
-    }
-
     let script2 = document.createElement('script');
-    script2.src = `${servicePeopleAlsoBoughtUrl}:${config.SERVICE_PEOPLE_ALSO_BOUGHT_PORT}/bundle.js`;
+    script2.src = `${config.SERVICE_PEOPLE_ALSO_BOUGHT_URL}:${config.SERVICE_PEOPLE_ALSO_BOUGHT_PORT}/bundle.js`;
     document.querySelector('body').appendChild(script2);
 
     let link2 = document.createElement('link')
-    link2.href = `${servicePeopleAlsoBoughtUrl}:${config.SERVICE_PEOPLE_ALSO_BOUGHT_PORT}/app.css`;
+    link2.href = `${config.SERVICE_PEOPLE_ALSO_BOUGHT_URL}:${config.SERVICE_PEOPLE_ALSO_BOUGHT_PORT}/app.css`;
     link2.rel = 'stylesheet';
     document.querySelector('body').appendChild(link2);
 

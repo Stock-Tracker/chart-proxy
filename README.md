@@ -20,8 +20,13 @@
   - [Earnings Chart](https://github.com/Dr-Wing/earnings)
   - [People Also Bought](https://github.com/Dr-Wing/people-also-bought)
 
+
 ## Deployment
-- Create a file in the project directory named `.env`, based on `.env.template`. This file will need the URL of the deployed EC2 instance, as well as the absolute path to the private key file in order to authenticate into that instance.
+- Create a file in the project directory named `.env`, based on `.env.template`. This file will need:
+  1. The URL of the deployed EC2 instance for this reverse proxy
+  2. The URL of the deployed EC2 instance for the Price Chart service
+  3. The URL of the deployed EC2 instance for the People Also Bought service
+  4. The absolute path to the private key file in order to authenticate into that instance.
 
 - From your LOCAL computer
 ```sh
@@ -31,21 +36,22 @@ export $(cat .env)
 
 ```sh
 # Only include the 1 at the end if this is the first time you've run this script on this instance (installs things like docker, docker-compose, etc...)
-bash deploy.sh $instance $pathToPEM 1
+bash deploy.sh $pathToPEM $instance 1 && bash compose.sh $pathToPEM $instance
 ```
 
-- Enter yes at the prompt.
+- (if needed) Enter yes at the prompt.
 
 - The app is now running on the instance in a container at port 80.
 
 ### If Needed
-- To stop the app (and clean up after yourself!), run this command from the `reverse-proxy` directory of the ec2 instance:
+- To stop (and clean up after yourself!) or restart the app, run these commands from your local machine (respectively)
 ```sh
-docker-compose down -v --rmi all
+bash compose.sh $pathToPEM $instance 1
 ```
-- To connect to the mongo db running in the mongo container (ie, check if there is data there, etc ...), from the ec2 instance, run
+
+- To restart the app:
 ```sh
-docker exec -i ec2-user_mongo_1 mongo "mongodb://localhost"
+bash compose.sh $pathToPEM $instance
 ```
 
 ## Requirements
@@ -63,7 +69,6 @@ docker build -t proxy .
 ```sh
 docker run -p 3000:3000 -v $(pwd):/app --name proxy proxy
 ```
-
 ### Without Docker
 - From within the root directory:
 ```sh
