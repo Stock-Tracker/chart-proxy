@@ -6,3 +6,6 @@ tests
 
 # Source Files
 client/src
+
+# env files
+.env

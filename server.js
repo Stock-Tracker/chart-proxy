@@ -1,5 +1,7 @@
+require('dotenv').config();
 const express = require('express');
-const PORT = process.env.PORT || 80;
+const config = require('./env.config.js')
+const PORT = config.REVERSE_PROXY_PORT;
 const app = express();
 
 app.use(express.static('client/dist'));
