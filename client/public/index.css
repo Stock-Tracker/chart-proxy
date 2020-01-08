@@ -53,7 +53,7 @@ body {
 
 /* HEADER */
 header {
-  width: 1024px;
+  max-width: 1024px;
   height: 64px;
   margin: 0 auto;
   display: flex;
@@ -61,6 +61,7 @@ header {
   align-items: center;
 }
 
+/* LOGO */
 #logo-container {
   margin-right: 6px;
 }
@@ -70,30 +71,35 @@ header {
 }
 
 @media (min-width: 1200px) {
-  #logo {
+  #logo-container {
     left: 48px;
     margin-right: 0;
-    position: absolute;
+    position: fixed;
   }
 }
 
-#search {
-  flex-basis: 480px;
-  min-width: 160px;
-}
-
-nav {
-  position: absolute;
-  right: 48px;
+/* NAV */
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex: 1 0 auto;
 }
 
 .nav-list {
   display: flex;
-  list-style: none;
   margin: 0;
   justify-content: space-evenly;
   padding: 0;
-  flex: 1 1 100px;
+  flex: 1 0 auto;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  nav {
+    position: fixed;
+    right: 48px;
+    top: 22px;
+  }
 }
 
 .nav-list-item {
@@ -103,6 +109,79 @@ nav {
 .nav-list-item[data-theme="light"] { color: var(--gray-dark); }
 
 .nav-list-item:hover { color: var(--green); }
+
+/* SEARCH BAR */
+#search {
+  min-width: 160px;
+  max-width: 480px;
+  flex: 1 1 480px;
+}
+
+.search-bar {
+  width: 100%;
+}
+
+/* something else ... magnifying glass??
+  height: 36px;
+  position: relative;
+  width: 100%; */
+
+  /* search box??
+  border-color: #f4f4f5;
+  border: 1px solid;
+  border-radius: 4px;
+  position: absolute;
+  -webkit-transition: border-color 150ms, -webkit-box-shadow 150ms ease-out;
+  transition: border-color 150ms, -webkit-box-shadow 150ms ease-out;
+  transition: border-color 150ms, box-shadow 150ms ease-out;
+  transition: border-color 150ms, box-shadow 150ms ease-out, -webkit-box-shadow 150ms ease-out;
+  width: 100%;
+  box-sizing: border-box; */
+
+  /* not sure what / why these are here for ...
+  border: none;
+  cursor: text;
+  height: 36px;
+  position: relative;
+  border: 1px solid;
+  border-radius: 4px;
+  height: 36px;
+  line-height: 1.5em;
+  outline: 0;
+  padding: 0 13px;
+  -webkit-transition: border-color 200ms;
+  transition: border-color 200ms;
+  width: 100%; */
+
+  /* select placeholder
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 36px;
+  left: 0;
+  padding: 0 24px 0 52px;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+  transition: color 150ms ease-out;
+  bottom: 0;
+  color: #f4f4f5;
+  left: 0;
+  line-height: 34px;
+  max-width: 100%;
+  overflow: hidden;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: absolute;
+  right: 0;
+  text-overflow: ellipsis;
+  top: 0;
+  white-space: nowrap;
+  box-sizing: border-box; */
+
 
 /* MAIN */
 main {

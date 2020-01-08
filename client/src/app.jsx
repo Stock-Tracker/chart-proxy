@@ -71,18 +71,18 @@ class App extends React.Component {
                 </g>
               </svg>
             </div>
-            <div id="search">
-              <input type="text"></input>
+            <div className="nav-wrapper">
+              <div id="search">
+                <input className="search-bar" type="text"></input>
+              </div>
+              <nav className="nav-list">
+                  <div className="nav-list-item" data-theme={`${this.state.theme}`}>Free Stock</div>
+                  <div className="nav-list-item" data-theme={`${this.state.theme}`}>Portfolio</div>
+                  <div className="nav-list-item" data-theme={`${this.state.theme}`}>Cash</div>
+                  <div className="nav-list-item" data-theme={`${this.state.theme}`}>Messages</div>
+                  <div className="nav-list-item" data-theme={`${this.state.theme}`}>Account</div>
+              </nav>
             </div>
-            <nav>
-              <ul className="nav-list">
-                <li className="nav-list-item" data-theme={`${this.state.theme}`}>Free Stock</li>
-                <li className="nav-list-item" data-theme={`${this.state.theme}`}>Portfolio</li>
-                <li className="nav-list-item" data-theme={`${this.state.theme}`}>Cash</li>
-                <li className="nav-list-item" data-theme={`${this.state.theme}`}>Messages</li>
-                <li className="nav-list-item" data-theme={`${this.state.theme}`}>Account</li>
-              </ul>
-            </nav>
           </header>
           <main>
             <div className="row">
