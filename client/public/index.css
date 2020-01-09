@@ -90,7 +90,7 @@ header {
   margin: 0;
   justify-content: space-evenly;
   padding: 0;
-  flex: 1 0 auto;
+  flex: 0 0 auto;
   align-items: center;
 }
 
