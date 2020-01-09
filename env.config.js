@@ -9,7 +9,6 @@ let obj = {
 
 if (process.env.NODE_ENV === 'production') {
   obj = Object.assign({}, obj, {
-    // the client will the get deployed urls from the browser, as it's running
     REVERSE_PROXY_URL: process.env.REVERSE_PROXY_URL,
     SERVICE_CHART_URL: process.env.SERVICE_CHART_URL,
     SERVICE_PEOPLE_ALSO_BOUGHT_URL: process.env.SERVICE_PEOPLE_ALSO_BOUGHT_URL,
