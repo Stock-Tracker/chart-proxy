@@ -37,6 +37,15 @@ body {
 .proxy-react-root[data-theme="light"] { color: var(--gray-dark); background: var(--white); }
 
 /* HEADER */
+.proxy-header-container {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.proxy-header-container[data-theme="light"] { background-color: var(--white); }
+.proxy-header-container[data-theme="dark"] { background-color: var(black); }
+
 header {
   max-width: 1024px;
   height: 64px;
