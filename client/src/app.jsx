@@ -40,6 +40,16 @@ class App extends React.Component {
     link2.rel = 'stylesheet';
     document.querySelector('body').appendChild(link2);
 
+    // Service About
+    let script3 = document.createElement('script');
+    script3.src = `${config.SERVICE_ABOUT_URL}:${config.SERVICE_ABOUT_PORT}/bundle.js`;
+    document.querySelector('body').appendChild(script3);
+
+    let link3 = document.createElement('link')
+    link3.href = `${config.SERVICE_ABOUT_URL}:${config.SERVICE_ABOUT_PORT}/app.css`;
+    link3.rel = 'stylesheet';
+    document.querySelector('body').appendChild(link3);
+
     // TODO: how to go about reading the ticker from the url and sending it to the microservice?
     // const ticker = utils.determineTicker(this.state.url);
     // this.setState({ chartUrl: `${urls.local}` });

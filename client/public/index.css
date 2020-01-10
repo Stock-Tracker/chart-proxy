@@ -1,30 +1,9 @@
 /* FONTS */
 @font-face {
-  font-family: 'DINPro Light';
-  font-style: normal;
-  font-weight: normal;
-  src: url('fonts/DINPro-Light tr.woff') format('woff');
-}
-
-@font-face {
   font-family: 'DINPro Medium';
   font-style: normal;
   font-weight: normal;
   src: url('/fonts/DINPro-Medium tr.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'DINPro Bold';
-  font-style: normal;
-  font-weight: normal;
-  src: url('fonts/DINPro-Bold tr.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'DINPro Black';
-  font-style: normal;
-  font-weight: normal;
-  src: url('fonts/DINPro-Black tr.woff') format('woff');
 }
 
 /* COLORS */
@@ -36,11 +15,6 @@
   --gray-dark: #1b1b1b;
   --gray-light: #000000;
   --white: #fff;
-
-  /* --green: rgb(33, 206, 153); */
-  /* --green-light: rgb(26, 233, 170); */
-  /* --orange: rgb(244, 85, 49); */
-  /* --orange-light: rgb(255, 99, 64); */
 }
 
 body {
