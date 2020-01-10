@@ -5,7 +5,7 @@ let obj = {
   SERVICE_CHART_PORT: `4444`,
   SERVICE_PEOPLE_ALSO_BOUGHT_URL: `http://localhost`,
   SERVICE_PEOPLE_ALSO_BOUGHT_PORT: `4550`,
-  SERVICE_ABOUT_URL: `http://localhost`,
+  SERVICE_ABOUT_URL: `http://ec2-54-183-218-240.us-west-1.compute.amazonaws.com`,
   SERVICE_ABOUT_PORT: `3333`
 };
 

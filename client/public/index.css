@@ -6,6 +6,17 @@
   src: url('/fonts/DINPro-Medium tr.woff') format('woff');
 }
 
+@font-face {
+  font-family: 'DINPro Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/fonts/DINPro-Bold tr.woff') format('woff');
+}
+
+.bold {
+  font-family: 'DINPro Bold';
+}
+
 /* COLORS */
 :root {
   --green: #21ce99;
@@ -22,8 +33,8 @@ body {
   font-family: "DINPro Medium", sans-serif;
 }
 
-.react-root[data-theme="dark"] { color: var(--white); background: var(--gray-dark); }
-.react-root[data-theme="light"] { color: var(--gray-dark); background: var(--white); }
+.proxy-react-root[data-theme="dark"] { color: var(--white); background: var(--gray-dark); }
+.proxy-react-root[data-theme="light"] { color: var(--gray-dark); background: var(--white); }
 
 /* HEADER */
 header {
@@ -36,16 +47,16 @@ header {
 }
 
 /* LOGO */
-#logo-container {
+#proxy-logo-container {
   margin-right: 6px;
 }
 
-.logo:hover {
+.proxy-logo:hover {
   color: var(--green);
 }
 
 @media (min-width: 1200px) {
-  #logo-container {
+  #proxy-logo-container {
     left: 48px;
     margin-right: 0;
     position: fixed;
@@ -53,13 +64,13 @@ header {
 }
 
 /* NAV */
-.nav-wrapper {
+.proxy-nav-wrapper {
   display: flex;
   justify-content: space-between;
   flex: 1 0 auto;
 }
 
-.nav-list {
+.proxy-nav-list {
   display: flex;
   margin: 0;
   justify-content: space-evenly;
@@ -76,22 +87,22 @@ header {
   }
 }
 
-.nav-list-item {
+.proxy-nav-list-item {
   margin-left: 33px;
 }
 
-.nav-list-item[data-theme="light"] { color: var(--gray-dark); }
+.proxy-nav-list-item[data-theme="light"] { color: var(--gray-dark); }
 
-.nav-list-item:hover { color: var(--green); }
+.proxy-nav-list-item:hover { color: var(--green); }
 
-/* SEARCH BAR */
-#search {
+/* proxy-search BAR */
+#proxy-search {
   min-width: 160px;
   max-width: 480px;
   flex: 1 1 480px;
 }
 
-.search-bar {
+.proxy-search-bar {
   width: 100%;
 }
 
@@ -100,7 +111,7 @@ header {
   position: relative;
   width: 100%; */
 
-  /* search box??
+  /* proxy-search box??
   border-color: #f4f4f5;
   border: 1px solid;
   border-radius: 4px;
@@ -162,9 +173,19 @@ main {
   padding-top: 36px;
   margin: 0 auto;
   width: 1024px;
+  margin-bottom: 5rem;
 }
 
-.row {
+.proxy-row {
   display: flex;
   justify-content: space-between;
+}
+
+/* FOOTER */
+footer {
+  visibility: hidden;
+  font-size: 0.9rem;
+  bottom: 0;
+  padding: 10px;
+  letter-spacing: 0.05rem;
 }
