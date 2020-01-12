@@ -11,7 +11,7 @@ class App extends React.Component {
       url: window.location.href,
       ticker: 'ABCD',
       chartUrl: null,
-      theme: 'light' // TODO: change this CSS theme depending on the time of the day ...
+      theme: 'light' // TODO: change this theme depending on the time of the day ...
     };
   }
 
@@ -40,27 +40,26 @@ class App extends React.Component {
     link2.rel = 'stylesheet';
     document.querySelector('body').appendChild(link2);
 
-    // Service About
-    let script3 = document.createElement('script');
-    script3.src = `${config.SERVICE_ABOUT_URL}:${config.SERVICE_ABOUT_PORT}/bundle.js`;
-    document.querySelector('body').appendChild(script3);
+    // These services were written by other members of the team, and their instances are turned off
+    // // Service About
+    // let script3 = document.createElement('script');
+    // script3.src = `${config.SERVICE_ABOUT_URL}:${config.SERVICE_ABOUT_PORT}/bundle.js`;
+    // document.querySelector('body').appendChild(script3);
 
-    let link3 = document.createElement('link')
-    link3.href = `${config.SERVICE_ABOUT_URL}:${config.SERVICE_ABOUT_PORT}/style.css`;
-    link3.rel = 'stylesheet';
-    document.querySelector('body').appendChild(link3);
+    // let link3 = document.createElement('link')
+    // link3.href = `${config.SERVICE_ABOUT_URL}:${config.SERVICE_ABOUT_PORT}/style.css`;
+    // link3.rel = 'stylesheet';
+    // document.querySelector('body').appendChild(link3);
 
-    // TODO: how to go about reading the ticker from the url and sending it to the microservice?
-    // const ticker = utils.determineTicker(this.state.url);
-    // this.setState({ chartUrl: `${urls.local}` });
+    // // Service Earnings
+    // let script4 = document.createElement('script');
+    // script4.src = `${config.SERVICE_EARNINGS_URL}:${config.SERVICE_EARNINGS_PORT}/bundle.js`;
+    // document.querySelector('body').appendChild(script4);
 
-    // fetch(`${urls.local}`)
-    //   .then(res => {
-    //     console.log(res);
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   });
+    // // let link4 = document.createElement('link')
+    // // link4.href = `${config.SERVICE_EARNINGS_URL}:${config.SERVICE_EARNINGS_PORT}/style.css`;
+    // // link4.rel = 'stylesheet';
+    // // document.querySelector('body').appendChild(link4);
   }
 
   componentDidUpdate() {

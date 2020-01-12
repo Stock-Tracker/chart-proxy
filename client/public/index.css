@@ -24,7 +24,7 @@
   --orange: #f45531;
   --orange-light: #ff6340;
   --gray-dark: #1b1b1b;
-  --gray-light: #000000;
+  --gray-light: #fafafa;
   --white: #fff;
 }
 
@@ -115,12 +115,35 @@ header {
   width: 100%;
 }
 
-/* something else ... magnifying glass??
+/* MAIN */
+main {
+  padding-top: 36px;
+  margin: 0 auto;
+  width: 1024px;
+  margin-bottom: 5rem;
+}
+
+.proxy-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* FOOTER */
+footer {
+  /* visibility: hidden; */
+  font-size: 0.9rem;
+  bottom: 0;
+  padding: 10px;
+  letter-spacing: 0.05rem;
+}
+
+/* POTENTIAL STYLES FOR SEARCH BOX */
+/* magnifying glass
   height: 36px;
   position: relative;
   width: 100%; */
 
-  /* proxy-search box??
+  /* proxy-search box
   border-color: #f4f4f5;
   border: 1px solid;
   border-radius: 4px;
@@ -132,7 +155,7 @@ header {
   width: 100%;
   box-sizing: border-box; */
 
-  /* not sure what / why these are here for ...
+  /*
   border: none;
   cursor: text;
   height: 36px;
@@ -175,26 +198,3 @@ header {
   top: 0;
   white-space: nowrap;
   box-sizing: border-box; */
-
-
-/* MAIN */
-main {
-  padding-top: 36px;
-  margin: 0 auto;
-  width: 1024px;
-  margin-bottom: 5rem;
-}
-
-.proxy-row {
-  display: flex;
-  justify-content: space-between;
-}
-
-/* FOOTER */
-footer {
-  visibility: hidden;
-  font-size: 0.9rem;
-  bottom: 0;
-  padding: 10px;
-  letter-spacing: 0.05rem;
-}

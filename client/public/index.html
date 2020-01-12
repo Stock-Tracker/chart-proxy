@@ -9,14 +9,17 @@
   <link rel="preload" href="fonts/DINPro-Bold tr.woff" as="font" type="font/woff" crossorigin>
   <link rel="preload" href="index.css" as="style">
 
+  <!-- for Jennifer's Earnings service
+  <link rel="stylesheet" href="https://cdn.robinhood.com/assets/generated_assets/legacyStyles.01de814098232dd69665.css" type="text/css" media="all" data-id="legacy-styles">
+  <link rel="stylesheet" href="https://cdn.robinhood.com/assets/generated_assets/App.01de814098232dd69665.css" type="text/css" media="all"> -->
+
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
   <div id="root"></div>
-  <!-- The bundle.js & app.css for each microservice needs to wait to be fetched until AFTER the bundle.js from the reverse proxy server has loaded. This happens in componentDidMount of <App> in the reverse proxy -->
+  <!-- The bundle.js & app.css for each microservice needs to wait to be fetched until AFTER the bundle.js from the reverse proxy server has loaded. This happens in componentDidMount of <App> -->
   <script src="bundle.js"></script>
-  <!-- TODO: Is there a better way to handle running ReactDOM.render() to mount each component to the page here?? -->
-  <footer>Made with ❤️ by <a href="https://bellcd.github.io/">Christian Dibala Bell</a>, as part of the <a href="https://github.com/Dr-Wing">Dr Wing team</a></footer>
+  <footer>Made with ❤️ by <a href="https://bellcd.github.io/">Christian Dibala Bell</a></footer>
   <script>
 
   </script>
