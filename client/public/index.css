@@ -1,12 +1,5 @@
 /* FONTS */
 @font-face {
-  font-family: 'DINPro Light';
-  font-style: normal;
-  font-weight: normal;
-  src: url('fonts/DINPro-Light tr.woff') format('woff');
-}
-
-@font-face {
   font-family: 'DINPro Medium';
   font-style: normal;
   font-weight: normal;
@@ -17,14 +10,11 @@
   font-family: 'DINPro Bold';
   font-style: normal;
   font-weight: normal;
-  src: url('fonts/DINPro-Bold tr.woff') format('woff');
+  src: url('/fonts/DINPro-Bold tr.woff') format('woff');
 }
 
-@font-face {
-  font-family: 'DINPro Black';
-  font-style: normal;
-  font-weight: normal;
-  src: url('fonts/DINPro-Black tr.woff') format('woff');
+.bold {
+  font-family: 'DINPro Bold';
 }
 
 /* COLORS */
@@ -34,13 +24,8 @@
   --orange: #f45531;
   --orange-light: #ff6340;
   --gray-dark: #1b1b1b;
-  --gray-light: #000000;
+  --gray-light: #fafafa;
   --white: #fff;
-
-  /* --green: rgb(33, 206, 153); */
-  /* --green-light: rgb(26, 233, 170); */
-  /* --orange: rgb(244, 85, 49); */
-  /* --orange-light: rgb(255, 99, 64); */
 }
 
 body {
@@ -48,12 +33,21 @@ body {
   font-family: "DINPro Medium", sans-serif;
 }
 
-.react-root[data-theme="dark"] { color: var(--white); background: var(--gray-dark); }
-.react-root[data-theme="light"] { color: var(--gray-dark); background: var(--white); }
+.proxy-react-root[data-theme="dark"] { color: var(--white); background: var(--gray-dark); }
+.proxy-react-root[data-theme="light"] { color: var(--gray-dark); background: var(--white); }
 
 /* HEADER */
+.proxy-header-container {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.proxy-header-container[data-theme="light"] { background-color: var(--white); }
+.proxy-header-container[data-theme="dark"] { background-color: var(black); }
+
 header {
-  width: 1024px;
+  max-width: 1024px;
   height: 64px;
   margin: 0 auto;
   display: flex;
@@ -61,53 +55,147 @@ header {
   align-items: center;
 }
 
-#logo {
+/* LOGO */
+#proxy-logo-container {
   margin-right: 6px;
 }
 
+.proxy-logo:hover {
+  color: var(--green);
+}
+
 @media (min-width: 1200px) {
-  #logo {
+  #proxy-logo-container {
     left: 48px;
     margin-right: 0;
-    position: absolute;
+    position: fixed;
   }
 }
 
-#search {
-  flex-basis: 480px;
-  min-width: 160px;
-}
-
-nav {
-  position: absolute;
-  right: 48px;
-}
-
-.nav-list {
+/* NAV */
+.proxy-nav-wrapper {
   display: flex;
-  list-style: none;
+  justify-content: space-between;
+  flex: 1 0 auto;
+}
+
+.proxy-nav-list {
+  display: flex;
   margin: 0;
   justify-content: space-evenly;
   padding: 0;
-  flex: 1 1 100px;
+  flex: 0 0 auto;
+  align-items: center;
 }
 
-.nav-list-item {
+@media (min-width: 1024px) {
+  nav {
+    position: fixed;
+    right: 48px;
+    top: 22px;
+  }
+}
+
+.proxy-nav-list-item {
   margin-left: 33px;
 }
 
-.nav-list-item[data-theme="light"] { color: var(--gray-dark); }
+.proxy-nav-list-item[data-theme="light"] { color: var(--gray-dark); }
 
-.nav-list-item:hover { color: var(--green); }
+.proxy-nav-list-item:hover { color: var(--green); }
+
+/* proxy-search BAR */
+#proxy-search {
+  min-width: 160px;
+  max-width: 480px;
+  flex: 1 1 480px;
+}
+
+.proxy-search-bar {
+  width: 100%;
+}
 
 /* MAIN */
 main {
   padding-top: 36px;
   margin: 0 auto;
   width: 1024px;
+  margin-bottom: 5rem;
 }
 
-.row {
+.proxy-row {
   display: flex;
   justify-content: space-between;
 }
+
+/* FOOTER */
+footer {
+  /* visibility: hidden; */
+  font-size: 0.9rem;
+  bottom: 0;
+  padding: 10px;
+  letter-spacing: 0.05rem;
+  position: fixed;
+}
+
+/* POTENTIAL STYLES FOR SEARCH BOX */
+/* magnifying glass
+  height: 36px;
+  position: relative;
+  width: 100%; */
+
+  /* proxy-search box
+  border-color: #f4f4f5;
+  border: 1px solid;
+  border-radius: 4px;
+  position: absolute;
+  -webkit-transition: border-color 150ms, -webkit-box-shadow 150ms ease-out;
+  transition: border-color 150ms, -webkit-box-shadow 150ms ease-out;
+  transition: border-color 150ms, box-shadow 150ms ease-out;
+  transition: border-color 150ms, box-shadow 150ms ease-out, -webkit-box-shadow 150ms ease-out;
+  width: 100%;
+  box-sizing: border-box; */
+
+  /*
+  border: none;
+  cursor: text;
+  height: 36px;
+  position: relative;
+  border: 1px solid;
+  border-radius: 4px;
+  height: 36px;
+  line-height: 1.5em;
+  outline: 0;
+  padding: 0 13px;
+  -webkit-transition: border-color 200ms;
+  transition: border-color 200ms;
+  width: 100%; */
+
+  /* select placeholder
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 36px;
+  left: 0;
+  padding: 0 24px 0 52px;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+  transition: color 150ms ease-out;
+  bottom: 0;
+  color: #f4f4f5;
+  left: 0;
+  line-height: 34px;
+  max-width: 100%;
+  overflow: hidden;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: absolute;
+  right: 0;
+  text-overflow: ellipsis;
+  top: 0;
+  white-space: nowrap;
+  box-sizing: border-box; */
