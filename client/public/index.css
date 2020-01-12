@@ -135,6 +135,7 @@ footer {
   bottom: 0;
   padding: 10px;
   letter-spacing: 0.05rem;
+  position: fixed;
 }
 
 /* POTENTIAL STYLES FOR SEARCH BOX */
